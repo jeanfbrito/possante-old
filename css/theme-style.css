@@ -2702,3 +2702,9 @@ ul.nav-tabs li.active a:hover {
 .page-elements h3.title-divider {
   margin-top: 2em;
 }
+
+
+.spaced {
+    padding-left: 10px;
+    margin-left: 10px;
+}
