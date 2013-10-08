@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20131007231955) do
     t.string  "gas_station"
     t.float   "average_consumption"
     t.integer "km_runned"
-    t.integer "vehice_id"
+    t.integer "vehicle_id"
   end
 
   create_table "users", force: true do |t|
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20131007231955) do
   create_table "vehicle_models", force: true do |t|
     t.integer "brand_id"
     t.string  "name"
-    t.string  "years"
   end
 
   create_table "vehicle_models_fabrication_years", force: true do |t|
@@ -64,7 +63,7 @@ ActiveRecord::Schema.define(version: 20131007231955) do
 
   create_table "vehicles", force: true do |t|
     t.integer "vehicle_model_id"
-    t.integer "manufacture_year_id"
+    t.integer "fabrication_year_id"
     t.integer "user_id"
     t.string  "image"
   end

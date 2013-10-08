@@ -8,7 +8,7 @@ class CreateRefuellings < ActiveRecord::Migration
       t.string :gas_station
       t.float :average_consumption
       t.integer :km_runned
-      t.integer :vehice_id
+      t.integer :vehicle_id
     end
   end
 end
