@@ -2,13 +2,20 @@
 <html>
 <head>
   <title>Possante</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+<!-- Le fav and touch icons - @todo: fill with your icons or remove -->
+<link rel="shortcut icon" href="img/icons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/72x72.png">
+<link rel="apple-touch-icon-precomposed" href="img/icons/default.png">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti' rel='stylesheet' type='text/css'>
 </head>
-<body>
+
 
 <%= yield %>
 
-</body>
 </html>
