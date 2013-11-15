@@ -1,179 +1,272 @@
 <%= render "shared/header"%>
 
 <div id="content">
-  <div class="container"> 
-    <!-- Services -->
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="title-divider"><span>Meus  <span class="de-em">Veículos</span></span> <small>Estes são os veiculos que você tem cadastrado</small></h2>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Placa</th>                
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Ano</th>
-                <th>Atualizado</th>
-                <th>Km</th>
-                <th style="text-align: center;" >Status</th>
-                <th style="text-align: center;" >Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% collection.each do |vehicle|%>
-              <tr>
-                <td>
-                  <%= vehicle.numberplate %>
-                </td>
-                <td>
-                  <%= vehicle.vehicle_model.brand.name %>
-                </td>
-                <td>
-                  <%= vehicle.vehicle_model.name %>
-                </td>
-                <td>
-                  <%= vehicle.fabrication_year.number %>
-                </td>
-                <td>
-                  <%= vehicle.updated_at %>
-                </td>
-                <td>
-                  <%= vehicle.mileage %>
-                </td>
-                <td style="text-align: center; color: #01C506;">
-                  <i class="fa fa-check-circle fa-2x"></i>
-                </td>
-                <td style="text-align: center;">
-                  <i class="fa fa-wrench fa-2x"></i> 
-                  <i class="fa fa-tint fa-2x"></i>
-                  <i class="fa fa-calendar fa-2x"></i>
-                </td>
-              </tr> 
-              <% end %>
-              <tr>
-                <td>
-                  IMP 4233
-                </td>
-                <td>
-                  Honda
-                </td>
-                <td>
-                  Civic Sedan LX 1.7 16V 115cv Mec. 4p
-                </td>
-                <td>
-                  2005
-                </td>
-                <td>
-                  18/09/2013 22:06
-                </td>
-                <td>
-                  125 765
-                </td>
-                <td style="text-align: center; color: #01C506;">
-                  <i class="fa fa-check-circle fa-2x"></i>
-                </td>
-                <td style="text-align: center;">
-                  <i class="fa fa-wrench fa-2x"></i> 
-                  <i class="fa fa-tint fa-2x"></i>
-                  <i class="fa fa-calendar fa-2x"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  INU 9926
-                </td>
-                <td>
-                  Honda
-                </td>
-                <td>
-                  XR 250 Tornado
-                </td>
-                <td>
-                  2007
-                </td>
-                <td>
-                  18/09/2013 22:06
-                </td>
-                <td>
-                  14 239
-                </td>
-                <td style="text-align: center; color: #FF972F;">
-                  <i class="fa fa-exclamation-triangle fa fa-2x"></i>
-                </td>
-                <td style="text-align: center;">
-                  <i class="fa fa-wrench fa fa-2x"></i> 
-                  <i class="fa fa-tint fa fa-2x"></i>
-                  <i class="fa fa-calendar fa fa-2x"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-         </div>
-    
-
-      <div class="col-md-7">
-        <h2 class="title-divider"><span>Legenda</span></h2>
-
-        <table class="table table-striped">
+    <div class="container">
+    <h2 class="title-divider"><span>Honda <span class="de-em">Civic Sedan LX 1.7 16V 115cv Mec. 4p</span></span> 
+      <small>Placa: <%= @vehicle.numberplate %> </small></h2>
+        <div class="tabbable">
+          <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab"><i style="color: #141414;" class="fa fa-info-circle"></i> Informações</a></li>
+            <li><a href="#tab2" data-toggle="tab"><i style="color: #141414;" class="fa fa-tint"></i> Abastecimentos</a></li>
+            <li><a href="#tab3" data-toggle="tab"><i style="color: #141414;" class="fa fa-wrench"></i> Manutenções</a></li>            
+            <li><a href="#tab4" data-toggle="tab"><i style="color: #141414;" class="fa fa-calendar"></i> Lembretes</a></li>
+            <li><a href="#tab5" data-toggle="tab">Configurações</a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="tab1">
+              <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
+            </div>
+            <div class="tab-pane fade" id="tab2">
+              <div id="tools">
+                <a href="#" class="btn btn-success pull-right spaced"><i class="fa fa-plus fa fa-white"></i> Novo abastecimento</a>
+              </div>
+              <br>
+              <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Símbolo</th>
-                        <th>Descrição</th>
-                        <th>Símbolo</th>
-                        <th>Descrição</th>
-                    </tr>
+                  <tr>
+                    <th>Data</th>                
+                    <th>Km</th>
+                    <th>Litros</th>
+                    <th>Preço do Litro</th>                
+                    <th>Total</th>
+                    <th>Kms rodados</th>
+                    <th>Consumo Médio</th>
+                    <th>Posto</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="text-align: center; color: #01C506;">
-                            <i class="fa fa-check-circle fa fa-2x"></i>
-                          </td>
-                        <td>Está tudo ok.</td>
-
-                        <td style="text-align: center;">
-                          <i class="fa fa-wrench fa fa-2x"></i>
-                        </td>
-                        <td>Fazer manutenção.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; color: #FF972F;">
-                          <i class="fa fa-exclamation-triangle fa fa-2x"></i>
-                        </td>
-                        <td>Atenção, há algo pendente.</td>
-
-                        <td style="text-align: center;">
-                          <i class="fa fa-tint fa fa-2x"></i>
-                        </td>
-                        <td>Cadastrar abastecimento.</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; color: #C60000;">
-                            <i class="fa fa-times-circle fa fa-2x"></i>
-                          </td>
-                        <td>Cuidado! Há alguma coisa errada!</td>
-
-                        <td style="text-align: center;">
-                          <i class="fa fa-calendar fa fa-2x"></i>
-                        </td>
-                        <td>Exibir lembretes.</td>
-                    </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      45
+                    </td>
+                    <td>
+                      R$ 2,829
+                    </td>
+                    <td>
+                      R$ 142,50
+                    </td>                
+                    <td>
+                      634
+                    </td>
+                    <td>
+                      <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> Zero 
+                    </td>
+                    <td> 
+                      Ipiranguinha
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      45
+                    </td>
+                    <td>
+                      R$ 2,829
+                    </td>
+                    <td>
+                      R$ 142,50
+                    </td>                
+                    <td>
+                      634
+                    </td>
+                    <td>
+                     <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 9,72 Km/l 
+                    </td>
+                    <td> 
+                      Ipiranguinha
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      45
+                    </td>
+                    <td>
+                      R$ 2,829
+                    </td>
+                    <td>
+                      R$ 142,50
+                    </td>                
+                    <td>
+                      634
+                    </td>
+                    <td>
+                     <i  style="color: #008000;" class="fa fa-arrow-up"></i> 11,37 Km/l 
+                    </td>
+                    <td> 
+                      Ipiranguinha
+                    </td> 
+                  </tr>             
                 </tbody>
-        </table>
-      </div>
-
-      <div class="col-md-5">
-
-          <form class="form-login form-wrapper form-narrow" action="/pacotes/pesquisar/" method="post" id="search_package">
-              <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="68a5cb858387cebc52a42d7e6328abc4"></div>
-              <h3 class="title-divider"><span>Pesquisar</span></h3>
-              <input autocomplete="off" name="q" maxlength="20" type="text" class="input-block-level" id="id_query">
+              </table>
+            </div>
+            <div class="tab-pane fade" id="tab3">
+              <div id="tools">
+                <a href="#" class="btn btn-success pull-right spaced"><i class="fa fa-plus fa fa-white"></i> Nova Manutenção</a>
+              </div>
               <br>
-              <button class="btn btn-large btn-primary" type="submit">Pesquisar</button>
-          </form>
-      </div> 
-    </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Data</th>                
+                    <th>Km</th>
+                    <th>Custo</th>
+                    <th>Descrição</th>                
+                    <th>Local</th>
+                    <th style="text-align: center;">NF</th>
+                    <th>Garantia</th>
+                    <th>Garantia restante</th>
+                    <th>Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      R$450,00
+                    </td>
+                    <td>
+                      Troca de correia dentada
+                    </td>
+                    <td>
+                      D'Carros Center
+                    </td>
+                    <td style="text-align: center;">
+                      <i class="fa fa-paperclip"></i>
+                    </td>            
+                    <td>
+                      5 dias
+                    </td>
+                    <td>
+                      Nenhum
+                    </td>
+                    <td style="text-align: center; font-size: 18px">
+                      <i class="fa fa-edit"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      R$450,00
+                    </td>
+                    <td>
+                      Troca de Pneus, geometria e balanceamento
+                    </td>
+                    <td>
+                      D'Carros Center
+                    </td> 
+                    <td style="text-align: center;">
+                      <i class="fa fa-paperclip"></i>
+                    </td>               
+                    <td>
+                      3 meses
+                    </td>
+                    <td>
+                      45 dias
+                    </td>
+                    <td style="text-align: center; font-size: 18px">
+                      <i class="fa fa-edit"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      R$2750,00
+                    </td>
+                    <td>
+                      Troca de buchas e amortecedores
+                    </td>
+                    <td>
+                      D'Carros Center
+                    </td> 
+                    <td style="text-align: center;">
+                      <i class="fa fa-paperclip"></i>
+                    </td>             
+                    <td>
+                      12 meses
+                    </td>
+                    <td>
+                      9 meses
+                    </td>
+                    <td style="text-align: center; font-size: 18px">
+                      <i class="fa fa-edit"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      18/09/2013
+                    </td>
+                    <td>
+                      154320
+                    </td>
+                    <td>
+                      R$450,00
+                    </td>
+                    <td>
+                      Troca de correia dentada
+                    </td>
+                    <td>
+                      D'Carros Center
+                    </td>  
+                    <td style="text-align: center;">
+                      <i class="fa fa-paperclip"></i>
+                    </td>              
+                    <td>
+                      30 dias
+                    </td>
+                    <td>
+                      13 dias
+                    </td>
+                    <td style="text-align: center; font-size: 18px">
+                      <i class="fa fa-edit"></i>
+                    </td>
+                  </tr>
+             
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade in active" id="tab4">
+              <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
+            </div>
+            <div class="tab-pane fade in active" id="tab5">
+              <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
+
 <div id="content-below" class="wrapper">
   <div class="container">
     <div class="row">
