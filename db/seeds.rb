@@ -19,4 +19,7 @@ VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 1
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 2)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 3)
 
+Refuelling.create( date: 30.day.from_now, km: 1000, liter_price: 2.819, liters: 45, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 15.day.from_now, km: 1500, liter_price: 2.819, liters: 45, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: Time.zone.now, km: 2000, liter_price: 2.819, liters: 45, gas_station: 'Ipiranguinha', vehicle_id: 1)
   
