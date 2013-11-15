@@ -1,0 +1,281 @@
+<%= render "shared/header"%>
+
+<div id="content">
+  <div class="container"> 
+    <!-- Services -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title-divider"><span>Meus  <span class="de-em">Veículos</span></span> <small>Estes são os veiculos que você tem cadastrado</small></h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Placa</th>                
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Atualizado</th>
+                <th>Km</th>
+                <th style="text-align: center;" >Status</th>
+                <th style="text-align: center;" >Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% collection.each do |vehicle|%>
+              <tr>
+                <td>
+                  <%= vehicle.numberplate %>
+                </td>
+                <td>
+                  <%= vehicle.vehicle_model.brand.name %>
+                </td>
+                <td>
+                  <%= vehicle.vehicle_model.name %>
+                </td>
+                <td>
+                  <%= vehicle.fabrication_year.number %>
+                </td>
+                <td>
+                  <%= vehicle.updated_at %>
+                </td>
+                <td>
+                  <%= vehicle.mileage %>
+                </td>
+                <td style="text-align: center; color: #01C506;">
+                  <i class="fa fa-check-circle fa-2x"></i>
+                </td>
+                <td style="text-align: center;">
+                  <i class="fa fa-wrench fa-2x"></i> 
+                  <i class="fa fa-tint fa-2x"></i>
+                  <i class="fa fa-calendar fa-2x"></i>
+                </td>
+              </tr> 
+              <% end %>
+              <tr>
+                <td>
+                  IMP 4233
+                </td>
+                <td>
+                  Honda
+                </td>
+                <td>
+                  Civic Sedan LX 1.7 16V 115cv Mec. 4p
+                </td>
+                <td>
+                  2005
+                </td>
+                <td>
+                  18/09/2013 22:06
+                </td>
+                <td>
+                  125 765
+                </td>
+                <td style="text-align: center; color: #01C506;">
+                  <i class="fa fa-check-circle fa-2x"></i>
+                </td>
+                <td style="text-align: center;">
+                  <i class="fa fa-wrench fa-2x"></i> 
+                  <i class="fa fa-tint fa-2x"></i>
+                  <i class="fa fa-calendar fa-2x"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  INU 9926
+                </td>
+                <td>
+                  Honda
+                </td>
+                <td>
+                  XR 250 Tornado
+                </td>
+                <td>
+                  2007
+                </td>
+                <td>
+                  18/09/2013 22:06
+                </td>
+                <td>
+                  14 239
+                </td>
+                <td style="text-align: center; color: #FF972F;">
+                  <i class="fa fa-exclamation-triangle fa fa-2x"></i>
+                </td>
+                <td style="text-align: center;">
+                  <i class="fa fa-wrench fa fa-2x"></i> 
+                  <i class="fa fa-tint fa fa-2x"></i>
+                  <i class="fa fa-calendar fa fa-2x"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+    
+
+      <div class="col-md-7">
+        <h2 class="title-divider"><span>Legenda</span></h2>
+
+        <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Descrição</th>
+                        <th>Símbolo</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; color: #01C506;">
+                            <i class="fa fa-check-circle fa fa-2x"></i>
+                          </td>
+                        <td>Está tudo ok.</td>
+
+                        <td style="text-align: center;">
+                          <i class="fa fa-wrench fa fa-2x"></i>
+                        </td>
+                        <td>Fazer manutenção.</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; color: #FF972F;">
+                          <i class="fa fa-exclamation-triangle fa fa-2x"></i>
+                        </td>
+                        <td>Atenção, há algo pendente.</td>
+
+                        <td style="text-align: center;">
+                          <i class="fa fa-tint fa fa-2x"></i>
+                        </td>
+                        <td>Cadastrar abastecimento.</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; color: #C60000;">
+                            <i class="fa fa-times-circle fa fa-2x"></i>
+                          </td>
+                        <td>Cuidado! Há alguma coisa errada!</td>
+
+                        <td style="text-align: center;">
+                          <i class="fa fa-calendar fa fa-2x"></i>
+                        </td>
+                        <td>Exibir lembretes.</td>
+                    </tr>
+                </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-5">
+
+          <form class="form-login form-wrapper form-narrow" action="/pacotes/pesquisar/" method="post" id="search_package">
+              <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="68a5cb858387cebc52a42d7e6328abc4"></div>
+              <h3 class="title-divider"><span>Pesquisar</span></h3>
+              <input autocomplete="off" name="q" maxlength="20" type="text" class="input-block-level" id="id_query">
+              <br>
+              <button class="btn btn-large btn-primary" type="submit">Pesquisar</button>
+          </form>
+      </div> 
+    </div>
+  </div>
+</div>
+<div id="content-below" class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="upsell"> <small class="muted">99.9% Uptime <span class="spacer">//</span> Free upgrade assistence <span class="spacer">//</span> 24/7 Support <span class="spacer">//</span> Plans from $19.99/month <span class="spacer">//</span> </small> <a href="pricing.htm" class="btn btn-primary">Start your Free Trial Today! <i class="fa fa-arrow-right"></i></a> </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<%= render "shared/footer"%>
+
+<!--Hidden elements - excluded from jPanel Menu on mobile-->
+<div class="hidden-elements jpanel-menu-exclude"> 
+  <!--@modal - signup modal-->
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form action="signup.htm" role="form">
+            <h5>Price Plan</h5>
+            <select class="form-control">
+              <option>Basic</option>
+              <option>Pro</option>
+              <option>Pro +</option>
+            </select>
+            <h5>Account Information</h5>
+            <div class="form-group">
+              <label class="sr-only" for="signup-first-name">First Name</label>
+              <input type="text" class="form-control" id="signup-first-name" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-last-name">Last Name</label>
+              <input type="text" class="form-control" id="signup-last-name" placeholder="Last name">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-username">Userame</label>
+              <input type="text" class="form-control" id="signup-username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-email">Email address</label>
+              <input type="email" class="form-control" id="signup-email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-password">Password</label>
+              <input type="password" class="form-control" id="signup-password" placeholder="Password">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="term">
+                I agree with the Terms and Conditions. </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign up</button>
+          </form>
+        </div>
+        <div class="modal-footer"> <small>Already signed up? <a href="login.htm">Login here</a>.</small> </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+  
+  <!--@modal - login modal-->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <form action="login.htm" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="login-email">Email</label>
+              <input type="email" id="login-email" class="form-control email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="login-password">Password</label>
+              <input type="password" id="login-password" class="form-control password" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer"> <small>Not a member? <a href="#" class="signup">Sign up now!</a></small><br />
+          <small><a href="#">Forgotten password?</a></small> </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+</div>
+
+<!--JS plugins 
+<script src="plugins/flexslider/jquery.flexslider-min.js"></script> 
+<script src="plugins/clingify/jquery.clingify.min.js"></script> 
+<script src="plugins/jPanelMenu/jquery.jpanelmenu.min.js"></script> 
+<script src="plugins/jRespond/js/jRespond.js"></script> 
+<script src="plugins/quicksand/jquery.quicksand.js"></script> -->
+
+<!-- </body> -->
