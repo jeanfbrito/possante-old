@@ -14,12 +14,16 @@
 ActiveRecord::Schema.define(version: 20131114231254) do
 
   create_table "brands", force: true do |t|
-    t.string "name"
-    t.string "logo"
+    t.string   "name"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "fabrication_years", force: true do |t|
-    t.integer "number"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -47,14 +51,16 @@ ActiveRecord::Schema.define(version: 20131114231254) do
   add_index "pages", ["title"], name: "index_pages_on_title"
 
   create_table "refuellings", force: true do |t|
-    t.date    "date"
-    t.integer "km"
-    t.float   "liter_price"
-    t.float   "liters"
-    t.string  "gas_station"
-    t.float   "average_consumption"
-    t.integer "km_runned"
-    t.integer "vehicle_id"
+    t.date     "date"
+    t.integer  "km"
+    t.float    "liter_price"
+    t.float    "liters"
+    t.string   "gas_station"
+    t.float    "average_consumption"
+    t.integer  "km_runned"
+    t.integer  "vehicle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -76,20 +82,29 @@ ActiveRecord::Schema.define(version: 20131114231254) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicle_models", force: true do |t|
-    t.integer "brand_id"
-    t.string  "name"
+    t.integer  "brand_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vehicle_models_fabrication_years", force: true do |t|
-    t.integer "vehicle_model_id"
-    t.integer "fabrication_year_id"
+    t.integer  "vehicle_model_id"
+    t.integer  "fabrication_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vehicles", force: true do |t|
-    t.integer "vehicle_model_id"
-    t.integer "fabrication_year_id"
-    t.integer "user_id"
-    t.string  "image"
+    t.integer  "vehicle_model_id"
+    t.integer  "fabrication_year_id"
+    t.integer  "user_id"
+    t.string   "image"
+    t.integer  "mileage"
+    t.string   "status"
+    t.string   "numberplate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

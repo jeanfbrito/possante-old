@@ -14,7 +14,7 @@ models = VehicleModel.create([ {
   name: 'Focus bla bla.', brand_id: 3 },{
   name: 'Uno Mille 1.0', brand_id: 4 
   }])
-Vehicle.create( vehicle_model_id: 1, fabrication_year_id: 2, user_id: 1)
+Vehicle.create( vehicle_model_id: 1, fabrication_year_id: 2, user_id: 1, mileage: 123456, numberplate: 'IMP 4233', status: 'ok')
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 1)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 2)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 3)
