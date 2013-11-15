@@ -5,6 +5,11 @@ class CreateVehicles < ActiveRecord::Migration
     	t.integer  :fabrication_year_id
     	t.integer  :user_id
     	t.string   :image
+      t.integer   :mileage
+      t.string    :status
+      t.string    :numberplate
+
+      t.timestamps
     end
   end
 end

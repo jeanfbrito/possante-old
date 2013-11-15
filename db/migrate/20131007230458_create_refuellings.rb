@@ -9,6 +9,8 @@ class CreateRefuellings < ActiveRecord::Migration
       t.float :average_consumption
       t.integer :km_runned
       t.integer :vehicle_id
+
+      t.timestamps
     end
   end
 end
