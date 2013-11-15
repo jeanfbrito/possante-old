@@ -52,3 +52,5 @@ gem "bootstrap-sass", "3.0.0.0 "
 gem 'inherited_resources'
 
 gem "animate-rails"
+
+gem 'friendly_id', '~> 5.0.0' 
