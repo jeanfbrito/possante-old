@@ -16,6 +16,7 @@
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
               <div class=".col-md-12">
+                <%= line_chart @refuellings.group_by_day(:updated_at).average_consumption %>
                 <%= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7}) %>
                 <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
               </div>
@@ -45,32 +46,34 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% @refuellings.each do |refill| %>
                   <tr>
                     <td>
                       18/09/2013
                     </td>
                     <td>
-                      154320
+                      <%= refill.km %>
                     </td>
                     <td>
-                      45
+                      <%= refill.liters %>
                     </td>
                     <td>
-                      R$ 2,829
+                      <%= refill.liter_price %>
                     </td>
                     <td>
-                      R$ 142,50
+                      <%= refill.total_value %>
                     </td>                
                     <td>
-                      634
+                      <%= refill.km_runned %>
                     </td>
                     <td>
                       <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> Zero 
                     </td>
                     <td> 
-                      Ipiranguinha
+                      <%= refill.gas_station %>
                     </td> 
                   </tr>
+                  <% end %>
                   <tr>
                     <td>
                       18/09/2013

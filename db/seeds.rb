@@ -19,11 +19,11 @@ VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 1
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 2)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 3)
 
-Refuelling.create( date: 90.day.ago, km: 10000, liter_price: 2.759, liters: 45, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: 75.day.ago, km: 10564, liter_price: 2.759, liters: 43, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: 60.day.ago, km: 11021, liter_price: 2.859, liters: 41, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: 45.day.ago, km: 11509, liter_price: 2.859, liters: 42, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: 30.day.ago, km: 12001, liter_price: 2.819, liters: 44, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: 15.day.ago, km: 12625, liter_price: 2.819, liters: 52, gas_station: 'Ipiranguinha', vehicle_id: 1)
-Refuelling.create( date: Time.zone.now,   km: 13023, liter_price: 2.819, liters: 38, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 90.day.ago, km: 10000, liter_price: 2.759, total_value: 130.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 75.day.ago, km: 10564, liter_price: 2.759, total_value: 120.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 60.day.ago, km: 11021, liter_price: 2.859, total_value: 132.30, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 45.day.ago, km: 11509, liter_price: 2.859, total_value: 124.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 30.day.ago, km: 12001, liter_price: 2.819, total_value: 129.45, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: 15.day.ago, km: 12625, liter_price: 2.819, total_value: 140.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
+Refuelling.create( date: Time.zone.now,   km: 13023, liter_price: 2.819, total_value: 128.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
   

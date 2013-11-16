@@ -53,12 +53,13 @@ ActiveRecord::Schema.define(version: 20131115220333) do
   create_table "refuellings", force: true do |t|
     t.date     "date"
     t.integer  "km"
-    t.float    "liter_price"
+    t.decimal  "liter_price"
     t.float    "liters"
     t.string   "gas_station"
     t.float    "average_consumption"
     t.integer  "km_runned"
     t.integer  "vehicle_id"
+    t.float    "total_value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
