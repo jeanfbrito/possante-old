@@ -16,15 +16,14 @@
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
               <div class=".col-md-12">
-                <%= line_chart @refuellings.group_by_day(:date).average(:average_consumption) %>
                 <%= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7}) %>
                 <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
               </div>
               <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
             </div>
             <div class="tab-pane fade" id="tab2">
-              <div class=".col-md-8">
-                <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
+              <div class=".col-md-12">
+                <%= line_chart @refuellings.group_by_day(:date).average(:average_consumption) %>
               </div>
               <div id="tools">
                 <a href="#" class="btn btn-success pull-right spaced">
