@@ -1,3 +1,4 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <%= render "shared/header"%>
 
 <div id="content">
@@ -14,13 +15,22 @@
           </ul>
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
+              <div class=".col-md-12">
+                <%= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7}) %>
+                <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
+              </div>
               <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
             </div>
             <div class="tab-pane fade" id="tab2">
-              <div id="tools">
-                <a href="#" class="btn btn-success pull-right spaced"><i class="fa fa-plus fa fa-white"></i> Novo abastecimento</a>
+              <div class=".col-md-8">
+                <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
               </div>
-              <br>
+              <div id="tools">
+                <a href="#" class="btn btn-success pull-right spaced">
+                  <i class="icon-plus icon-white">
+                  </i> Novo abastecimento</a>
+              </div>
+              
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -117,6 +127,9 @@
               </table>
             </div>
             <div class="tab-pane fade" id="tab3">
+              <div class=".col-md-8">
+                <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
+              </div>
               <div id="tools">
                 <a href="#" class="btn btn-success pull-right spaced"><i class="fa fa-plus fa fa-white"></i> Nova Manutenção</a>
               </div>
@@ -257,6 +270,7 @@
               </table>
             </div>
             <div class="tab-pane fade in active" id="tab4">
+
               <p>Dignissim tincidunt mattis lorem, sagittis nisi, amet ut pulvinar lectus cursus ac! Enim turpis odio dis. Non ut vel, nisi dapibus? Velit augue tortor, ut ac ac nec tortor nec, mauris massa.</p>
             </div>
             <div class="tab-pane fade in active" id="tab5">
