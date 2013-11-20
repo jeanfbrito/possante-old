@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20131115220333) do
     t.integer  "km_runned"
     t.integer  "vehicle_id"
     t.float    "total_value"
+    t.integer  "result"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

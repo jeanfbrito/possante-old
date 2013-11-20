@@ -61,3 +61,5 @@ gem "chartkick"
 gem 'pry-rails', '~> 0.3.2'
 
 gem 'groupdate'
+
+gem "enumerize", "~> 0.7.0"

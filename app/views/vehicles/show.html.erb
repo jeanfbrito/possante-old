@@ -68,7 +68,14 @@
                       <%= refill.km_runned %>
                     </td>
                     <td>
-                      <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> Zero 
+                      <% case refill.result.value
+                           when 0 %>
+                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> <%= refill.average_consumption %> Km/l
+                        <% when 1 %>
+                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> <%= refill.average_consumption %> Km/l
+                        <% when 2 %>
+                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> <%= refill.average_consumption %> Km/l
+                      <% end %>
                     </td>
                     <td> 
                       <%= refill.gas_station %>

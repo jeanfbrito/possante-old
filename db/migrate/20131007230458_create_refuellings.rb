@@ -10,6 +10,7 @@ class CreateRefuellings < ActiveRecord::Migration
       t.integer :km_runned
       t.integer :vehicle_id
       t.float :total_value
+      t.integer :result
 
       t.timestamps
     end
