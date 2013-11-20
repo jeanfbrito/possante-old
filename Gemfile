@@ -63,3 +63,5 @@ gem 'pry-rails', '~> 0.3.2'
 gem 'groupdate'
 
 gem "enumerize", "~> 0.7.0"
+
+gem "rails-i18n", "~> 4.0.0"

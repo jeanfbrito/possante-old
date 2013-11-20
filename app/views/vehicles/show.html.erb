@@ -23,7 +23,7 @@
             </div>
             <div class="tab-pane fade" id="tab2">
               <div class=".col-md-12">
-                <%= line_chart @refuellings.group_by_day(:date).average(:average_consumption),
+                <%= line_chart @vehicle.refuellings.group_by_day(:date).average(:average_consumption),
                 :library => {title: 'Consumo médio'} 
                 %>
               </div>
@@ -50,19 +50,19 @@
                   <% @refuellings.each do |refill| %>
                   <tr>
                     <td>
-                      18/09/2013
+                      <%= l refill.date %>
                     </td>
                     <td>
                       <%= refill.km %>
                     </td>
                     <td>
-                      <%= refill.liters %>
+                      <%= number_with_delimiter(refill.liters) %>
                     </td>
                     <td>
-                      <%= refill.liter_price %>
+                      <%= number_to_currency(refill.liter_price, precision: 3) %>
                     </td>
                     <td>
-                      <%= refill.total_value %>
+                      <%= number_to_currency(refill.total_value) %>
                     </td>                
                     <td>
                       <%= refill.km_runned %>
@@ -70,70 +70,21 @@
                     <td>
                       <% case refill.result.value
                            when 0 %>
-                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> <%= refill.average_consumption %> Km/l
+                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
                         <% when 1 %>
-                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> <%= refill.average_consumption %> Km/l
+                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
                         <% when 2 %>
-                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> <%= refill.average_consumption %> Km/l
+                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
                       <% end %>
                     </td>
                     <td> 
                       <%= refill.gas_station %>
                     </td> 
                   </tr>
-                  <% end %>
-                  <tr>
-                    <td>
-                      18/09/2013
-                    </td>
-                    <td>
-                      154320
-                    </td>
-                    <td>
-                      45
-                    </td>
-                    <td>
-                      R$ 2,829
-                    </td>
-                    <td>
-                      R$ 142,50
-                    </td>                
-                    <td>
-                      634
-                    </td>
-                    <td>
-                     <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 9,72 Km/l 
-                    </td>
-                    <td> 
-                      Ipiranguinha
-                    </td> 
-                  </tr>
-                  <tr>
-                    <td>
-                      18/09/2013
-                    </td>
-                    <td>
-                      154320
-                    </td>
-                    <td>
-                      45
-                    </td>
-                    <td>
-                      R$ 2,829
-                    </td>
-                    <td>
-                      R$ 142,50
-                    </td>                
-                    <td>
-                      634
-                    </td>
-                    <td>
-                     <i  style="color: #008000;" class="fa fa-arrow-up"></i> 11,37 Km/l 
-                    </td>
-                    <td> 
-                      Ipiranguinha
-                    </td> 
-                  </tr>             
+                  <% end %>           
                 </tbody>
               </table>
             </div>
