@@ -42,7 +42,14 @@
                   <%= vehicle.mileage %>
                 </td>
                 <td style="text-align: center; color: #01C506;">
-                  <i class="fa fa-check-circle fa-2x"></i>
+                  <% case vehicle.status.value
+                       when 0 %>
+                        <i  style="color: #01C506;" class="fa fa-check-circle fa-2x"></i>
+                    <% when 1 %>
+                        <i  style="color: #FF972F;" class="fa fa-exclamation-triangle fa-2x"></i>
+                    <% when 2 %>
+                        <i  style="color: #C60000;" class="fa fa-times-circle fa-2x"></i>
+                  <% end %>
                 </td>
                 <td style="text-align: center;" class="vehicle-actions">
                   <%= link_to vehicle_refuellings_path(vehicle) do %>
@@ -54,66 +61,9 @@
                   <%= link_to vehicle_refuellings_path(vehicle) do %>
                     <i class="fa fa-calendar fa-2x" data-toggle="tooltip" title="Lembretes/Agendamentos"></i>
                   <% end %>
-                  
                 </td>
               </tr> 
               <% end %>
-              <tr>
-                <td>
-                  IMP 4233
-                </td>
-                <td>
-                  Honda
-                </td>
-                <td>
-                  Civic Sedan LX 1.7 16V 115cv Mec. 4p
-                </td>
-                <td>
-                  2005
-                </td>
-                <td>
-                  18/09/2013 22:06
-                </td>
-                <td>
-                  125 765
-                </td>
-                <td style="text-align: center; color: #01C506;">
-                  <i class="fa fa-check-circle fa-2x"></i>
-                </td>
-                <td style="text-align: center;">
-                  <i class="fa fa-wrench fa-2x"></i> 
-                  <i class="fa fa-tint fa-2x"></i>
-                  <i class="fa fa-calendar fa-2x"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  INU 9926
-                </td>
-                <td>
-                  Honda
-                </td>
-                <td>
-                  XR 250 Tornado
-                </td>
-                <td>
-                  2007
-                </td>
-                <td>
-                  18/09/2013 22:06
-                </td>
-                <td>
-                  14 239
-                </td>
-                <td style="text-align: center; color: #FF972F;">
-                  <i class="fa fa-exclamation-triangle fa fa-2x"></i>
-                </td>
-                <td style="text-align: center;">
-                  <i class="fa fa-wrench fa fa-2x"></i> 
-                  <i class="fa fa-tint fa fa-2x"></i>
-                  <i class="fa fa-calendar fa fa-2x"></i>
-                </td>
-              </tr>
             </tbody>
           </table>
          </div>
