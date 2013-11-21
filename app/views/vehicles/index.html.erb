@@ -36,7 +36,7 @@
                   <%= vehicle.fabrication_year.number %>
                 </td>
                 <td>
-                  <%= vehicle.updated_at %>
+                  <%= l(vehicle.updated_at, :format => :long) %>
                 </td>
                 <td>
                   <%= vehicle.mileage %>
