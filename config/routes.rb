@@ -1,7 +1,10 @@
 Possante::Application.routes.draw do
   devise_for :users
 
-  resources :vehicles, only: [:index, :show]
+  resources :vehicles do
+    resources :refuellings
+  end
+
   resources :pages, only: [:index, :show]
   root :to => "pages#index"
   

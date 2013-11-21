@@ -1,0 +1,180 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= render "shared/header"%>
+
+<div id="content">
+    <div class="container">
+    <h2 class="title-divider"><span>Abastecimentos <span class="de-em"> do veículo</span></span> 
+      <small>Honda Civic Sedan LX 1.7 16V 115cv Mec. 4p Placa: <%= @vehicle.numberplate %> </small></h2>
+                      <div class=".col-md-12">
+                <%= line_chart @vehicle.refuellings.group_by_day(:date).average(:average_consumption),
+                :library => {title: 'Consumo médio'} 
+                %>
+              </div>
+              <div id="tools">
+                <a href="#" class="btn btn-success pull-right spaced">
+                  <i class="icon-plus icon-white">
+                  </i> Novo abastecimento</a>
+              </div>
+              
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Data</th>                
+                    <th>Km</th>
+                    <th>Litros</th>
+                    <th>Preço do Litro</th>                
+                    <th>Total</th>
+                    <th>Kms rodados</th>
+                    <th>Consumo Médio</th>
+                    <th>Posto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @refuellings.each do |refill| %>
+                  <tr>
+                    <td>
+                      <%= l refill.date %>
+                    </td>
+                    <td>
+                      <%= refill.km %>
+                    </td>
+                    <td>
+                      <%= number_with_delimiter(refill.liters) %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(refill.liter_price, precision: 3) %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(refill.total_value) %>
+                    </td>                
+                    <td>
+                      <%= refill.km_runned %>
+                    </td>
+                    <td>
+                      <% case refill.result.value
+                           when 0 %>
+                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                        <% when 1 %>
+                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                        <% when 2 %>
+                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                      <% end %>
+                    </td>
+                    <td> 
+                      <%= refill.gas_station %>
+                    </td> 
+                  </tr>
+                  <% end %>           
+                </tbody>
+              </table>
+  </div>
+</div>
+
+<div id="content-below" class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="upsell"> <small class="muted">99.9% Uptime <span class="spacer">//</span> Free upgrade assistence <span class="spacer">//</span> 24/7 Support <span class="spacer">//</span> Plans from $19.99/month <span class="spacer">//</span> </small> <a href="pricing.htm" class="btn btn-primary">Start your Free Trial Today! <i class="fa fa-arrow-right"></i></a> </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<%= render "shared/footer"%>
+
+<!--Hidden elements - excluded from jPanel Menu on mobile-->
+<div class="hidden-elements jpanel-menu-exclude"> 
+  <!--@modal - signup modal-->
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form action="signup.htm" role="form">
+            <h5>Price Plan</h5>
+            <select class="form-control">
+              <option>Basic</option>
+              <option>Pro</option>
+              <option>Pro +</option>
+            </select>
+            <h5>Account Information</h5>
+            <div class="form-group">
+              <label class="sr-only" for="signup-first-name">First Name</label>
+              <input type="text" class="form-control" id="signup-first-name" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-last-name">Last Name</label>
+              <input type="text" class="form-control" id="signup-last-name" placeholder="Last name">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-username">Userame</label>
+              <input type="text" class="form-control" id="signup-username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-email">Email address</label>
+              <input type="email" class="form-control" id="signup-email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="signup-password">Password</label>
+              <input type="password" class="form-control" id="signup-password" placeholder="Password">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="term">
+                I agree with the Terms and Conditions. </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign up</button>
+          </form>
+        </div>
+        <div class="modal-footer"> <small>Already signed up? <a href="login.htm">Login here</a>.</small> </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+  
+  <!--@modal - login modal-->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <form action="login.htm" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="login-email">Email</label>
+              <input type="email" id="login-email" class="form-control email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="login-password">Password</label>
+              <input type="password" id="login-password" class="form-control password" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer"> <small>Not a member? <a href="#" class="signup">Sign up now!</a></small><br />
+          <small><a href="#">Forgotten password?</a></small> </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+</div>
+
+<!--JS plugins 
+<script src="plugins/flexslider/jquery.flexslider-min.js"></script> 
+<script src="plugins/clingify/jquery.clingify.min.js"></script> 
+<script src="plugins/jPanelMenu/jquery.jpanelmenu.min.js"></script> 
+<script src="plugins/jRespond/js/jRespond.js"></script> 
+<script src="plugins/quicksand/jquery.quicksand.js"></script> -->
+
+<!-- </body> -->
