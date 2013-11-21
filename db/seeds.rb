@@ -10,14 +10,19 @@ brand = Brand.create([{ name: 'Honda' }, { name: 'Toyota' }, { name: 'Ford' }, {
 year = FabricationYear.create([{ number: '2000' }, { number: '2005' }, { number: '2010' }, { number: '2013' }])
 models = VehicleModel.create([ { 
   name: 'Civic LX 16V 115cv 4p', brand_id: 1 },{
-  name: 'Corolla Xlei 110cv Aut.', brand_id: 2 },{
+  name: 'Corolla Xli 110cv Aut.', brand_id: 2 },{
   name: 'Focus bla bla.', brand_id: 3 },{
   name: 'Uno Mille 1.0', brand_id: 4 
   }])
-Vehicle.create( vehicle_model_id: 1, fabrication_year_id: 2, user_id: 1, mileage: 123456, numberplate: 'IMP-4233', status: 'ok')
+
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 1)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 2)
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 3)
+
+
+Vehicle.create( vehicle_model_id: 1, fabrication_year_id: 2, user_id: 1, mileage: 123456, numberplate: 'IMP-4233', status: 'ok')
+Vehicle.create( vehicle_model_id: 2, fabrication_year_id: 1, user_id: 1, mileage: 123456, numberplate: 'IOY-9926', status: 'ok')
+
 
 #Refuelling.create( date: 90.day.ago, km: 10000, liter_price: 2.759, total_value: 130.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
 #Refuelling.create( date: 75.day.ago, km: 10564, liter_price: 2.759, total_value: 120.00, gas_station: 'Ipiranguinha', vehicle_id: 1)
@@ -34,3 +39,11 @@ for i in 0..50
   kmanterior = kmatual
   Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 1)
 end  
+
+kmanterior = 45000
+for i in 0..50
+  thatdate = 780 - i * 15
+  kmatual = kmanterior + rand(420..590)
+  kmanterior = kmatual
+  Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 2)
+end 
