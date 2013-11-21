@@ -15,6 +15,8 @@ class Refuelling < ActiveRecord::Base
     lastRefill = Refuelling.where(vehicle: self.vehicle).last #carrega o ultimo abastecimento
     self.liters = (self.total_value / self.liter_price).round(2)
 
+    self.vehicle.update_attributes(:mileage => self.km)
+
     unless lastRefill.nil?
       self.km_runned = self.km - lastRefill.km #calcula os quilometros rodados desde o ultimo abastecimento
 
