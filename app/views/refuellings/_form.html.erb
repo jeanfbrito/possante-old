@@ -1,1 +1,7 @@
-_form.html.erb
+<%= simple_form_for @refuelling, url: vehicle_refuellings_path, html: { class: 'form-inline' } do |f| %>
+  <%= f.input :date %>
+  <%= f.input :km %>
+  <%= f.input :liter_price %>
+  <%= f.input :total_value %>
+  <%= f.submit %>
+<% end %>
