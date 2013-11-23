@@ -8,11 +8,11 @@
 
 brand = Brand.create([{ name: 'Honda' }, { name: 'Toyota' }, { name: 'Ford' }, { name: 'Fiat' }])
 year = FabricationYear.create([{ number: '2000' }, { number: '2005' }, { number: '2010' }, { number: '2013' }])
-models = VehicleModel.create([ { 
+models = VehicleModel.create([ {
   name: 'Civic LX 16V 115cv 4p', brand_id: 1 },{
   name: 'Corolla Xli 110cv Aut.', brand_id: 2 },{
   name: 'Focus bla bla.', brand_id: 3 },{
-  name: 'Uno Mille 1.0', brand_id: 4 
+  name: 'Uno Mille 1.0', brand_id: 4
   }])
 
 VehicleModelsFabricationYear.create( vehicle_model_id: 1, fabrication_year_id: 1)
@@ -39,7 +39,7 @@ for i in 0..50
   kmatual = kmanterior + rand(420..590)
   kmanterior = kmatual
   Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 3)
-end 
+end
 
 kmanterior = 10000
 for i in 0..50
@@ -47,7 +47,7 @@ for i in 0..50
   kmatual = kmanterior + rand(420..590)
   kmanterior = kmatual
   Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 1)
-end  
+end
 
 kmanterior = 45000
 for i in 0..50
@@ -55,4 +55,6 @@ for i in 0..50
   kmatual = kmanterior + rand(420..590)
   kmanterior = kmatual
   Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 2)
-end 
+end
+
+User.create(id: 1, email: 'admin@example.com', password: 'password');
