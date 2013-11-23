@@ -3,15 +3,15 @@
 <div id="content">
     <div class="container">
     <h2 class="title-divider"><span>Abastecimentos <span class="de-em"> do veículo</span></span> 
-      <small>Honda Civic Sedan LX 1.7 16V 115cv Mec. 4p Placa: <%= @vehicle.numberplate %> </small></h2>
+      <small><%= @vehicle.vehicle_model.brand.name %> - <%= @vehicle.vehicle_model.name %> - Placa: <%= @vehicle.numberplate %> </small></h2>
                       <div class=".col-md-12">
                 <%= line_chart @vehicle.refuellings.group_by_day(:date).average(:average_consumption),
                 :library => {title: 'Consumo médio'} 
                 %>
               </div>
               <div id="tools">
-                <a href="#" class="btn btn-success pull-right spaced">
-                  <i class="icon-plus icon-white">
+                <a href="<%= new_vehicle_refuelling_path(@vehicle)%>" class="btn btn-success pull-right spaced">
+                  <i class="fa fa-plus">
                   </i> Novo abastecimento</a>
               </div>
               
