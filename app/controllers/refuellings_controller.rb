@@ -6,6 +6,12 @@ class RefuellingsController < InheritedResources::Base
 
   end
 
+  def edit
+    @refuelling = @vehicle.refuellings.find(params[:id])
+
+    render :layout => !request.xhr?
+  end
+
   def index
     @refuellings = @vehicle.refuellings.order('date desc')
 

@@ -18,6 +18,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
+                    <th></th> 
                     <th>Data</th>                
                     <th>Km</th>
                     <th>Litros</th>
@@ -31,6 +32,12 @@
                 <tbody>
                   <% @refuellings.each do |refill| %>
                   <tr>
+                    <td>
+                      <%= %>
+                      <%= link_to edit_vehicle_refuelling_path(@vehicle, refill) do %>
+                        <i class="fa fa-edit" data-toggle="tooltip" title="Editar abastecimento"></i> 
+                      <% end %>
+                    </td>
                     <td>
                       <%= l refill.date %>
                     </td>
