@@ -2,8 +2,18 @@ class RefuellingsController < InheritedResources::Base
 
   before_filter :find_vehicle
 
-  def show
+  def update
+    @refuelling = @vehicle.refuellings.find(params[:id])
 
+    respond_to do |format|
+      if @refuelling.update_attributes(resource_params)
+        format.html { redirect_to vehicle_refuellings_path(@vehicle), notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @refuelling.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
