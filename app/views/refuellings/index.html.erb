@@ -33,10 +33,10 @@
                   <% @refuellings.each do |refill| %>
                   <tr>
                     <td style="text-align: center;" class="refill-actions">
-                      <%= link_to edit_vehicle_refuelling_path(@vehicle, refill) do %>
-                        <i class="fa fa-edit" data-toggle="tooltip" title="Editar abastecimento"></i> 
-                      <% end %>
-                      <%= link_to 'Edit', "#editRefill", :data => { :url => edit_vehicle_refuelling_path(@vehicle, refill), :toggle => "modal" }, :class => "edit-refill-button" %>
+                      <%= link_to raw('<i class="fa fa-edit" data-toggle="tooltip" title="Editar abastecimento"></i>'), 
+                        "#editRefill", 
+                        :data => { :url => edit_vehicle_refuelling_path(@vehicle, refill), :toggle => "modal" }, 
+                        :class => "edit-refill-button" %>
                     </td>
                     <td>
                       <%= l refill.date %>
