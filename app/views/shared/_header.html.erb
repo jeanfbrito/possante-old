@@ -1,25 +1,25 @@
 <!-- <body class="page page-index"> -->
 <a href="#content" class="sr-only">Skip to content</a>
 <div id="navigation" class="wrapper">
-  <div class="navbar-static-top"> 
-    
+  <div class="navbar-static-top">
+
     <!--Header & Branding region-->
     <div class="header">
       <div class="header-inner container">
         <div class="row">
-          <div class="col-md-8"> 
-            <!--branding/logo--> 
-            <a class="navbar-brand" href="index.htm" title="Home">
+          <div class="col-md-8">
+            <!--branding/logo-->
+            <a class="navbar-brand" href="/" title="Home">
             <h1><span>Possante</span>.info<span></span></h1>
             </a>
             <div class="slogan">Seu gerenciador de veículos</div>
           </div>
-          
+
           <!--header rightside-->
-          <div class="col-md-4"> 
+          <div class="col-md-4">
             <!--social media icons-->
-            <div class="social-media"> 
-              <!--@todo: replace with company social media details--> 
+            <div class="social-media">
+              <!--@todo: replace with company social media details-->
               <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> </div>
           </div>
         </div>
@@ -28,27 +28,34 @@
     </div>
 
     <!--Change order for full width navbar
-  <div class="navbar"> 
+  <div class="navbar">
     <div class="container" data-toggle="clingify">-->
     <div class="container" data-toggle="clingify">
-      <div class="navbar"> 
+      <div class="navbar">
         <!--
       mobile collapse menu button
       - data-toggle="toggle" = default BS menu
       - data-toggle="jpanel-menu" = jPanel Menu
-      --> 
-        <a class="navbar-btn" data-toggle="jpanel-menu" data-target=".navbar-collapse"> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> </a> 
-        
+      -->
+        <a class="navbar-btn" data-toggle="jpanel-menu" data-target=".navbar-collapse"> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> </a>
+
         <!--user menu-->
-        <div class="btn-group user-menu pull-right"> <a href="#signup-modal" class="btn btn-primary signup" data-toggle="modal">Sign Up</a> <a href="#login-modal" class="btn btn-primary dropdown-toggle login" data-toggle="modal">Login</a> </div>
-        
+        <div class="btn-group user-menu pull-right">
+          <a href="#signup-modal" class="btn btn-primary signup" data-toggle="modal">Sign Up</a>
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", "/users/sign_out", method: 'delete', class: "btn btn-primary dropdown" %>
+          <% else %>
+            <a href="#login-modal" class="btn btn-primary dropdown-toggle login" data-toggle="modal">Login</a>
+          <% end %>
+        </div>
+
         <!--everything within this div is collapsed on mobile-->
-        <div class="navbar-collapse collapse"> 
-          
+        <div class="navbar-collapse collapse">
+
           <!--main navigation-->
           <ul class="nav navbar-nav">
-            <li class="home-link"><a href="index.htm"><i class="fa fa-home"></i><span class="hidden">Home</span></a></li>
-            <li class="dropdown"> <a href="features.htm" class="dropdown-toggle menu-item" id="features-drop" data-toggle="dropdown">Features +</a> 
+            <li class="home-link"><a href="/"><i class="fa fa-home"></i><span class="hidden">Home</span></a></li>
+            <li class="dropdown"> <a href="features.htm" class="dropdown-toggle menu-item" id="features-drop" data-toggle="dropdown">Features +</a>
               <!-- Dropdown Menu - Mega Menu -->
               <ul class="dropdown-menu mega-menu" role="menu" aria-labelledby="features-drop">
                 <li role="presentation" class="dropdown-header">Mega Menu with links & text items</li>
@@ -61,9 +68,9 @@
                 </li>
               </ul>
             </li>
-            <li><a href="pricing.htm" class="menu-item">Pricing</a></li>
+            <li> <%= link_to "My Vehicles", vehicles_path %><li>
             <li><a href="customers.htm" class="menu-item">Customers</a></li>
-            <li class="dropdown"> <a href="about.htm" class="dropdown-toggle" id="about-drop" data-toggle="dropdown">About +</a> 
+            <li class="dropdown"> <a href="about.htm" class="dropdown-toggle" id="about-drop" data-toggle="dropdown">About +</a>
               <!-- Dropdown Menu -->
               <ul class="dropdown-menu" role="menu" aria-labelledby="about-drop">
                 <li role="presentation"><a role="menuitem" href="sobre" tabindex="-1" class="menu-item">About Us</a></li>
@@ -71,7 +78,7 @@
                 <li role="presentation"><a role="menuitem" href="contact.htm" tabindex="-1" class="menu-item">Contact</a></li>
               </ul>
             </li>
-            <li class="dropdown"> <a href="blog.htm" class="dropdown-toggle" id="blog-drop" data-toggle="dropdown">Blog +</a> 
+            <li class="dropdown"> <a href="blog.htm" class="dropdown-toggle" id="blog-drop" data-toggle="dropdown">Blog +</a>
               <!-- Dropdown Menu -->
               <ul class="dropdown-menu" role="menu" aria-labelledby="blog-drop">
                 <li role="presentation"><a role="menuitem" href="blog.htm" tabindex="-1" class="menu-item">Right Sidebar</a></li>
@@ -79,7 +86,7 @@
                 <li role="presentation"><a role="menuitem" href="blog-post.htm" tabindex="-1" class="menu-item">Blog Post</a></li>
               </ul>
             </li>
-            <li class="dropdown"> <a href="pages.htm" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">More +</a> 
+            <li class="dropdown"> <a href="pages.htm" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">More +</a>
               <!-- Mega Menu -->
               <ul class="dropdown-menu" role="menu" aria-labelledby="pages-drop">
                 <li role="presentation" class="dropdown-header">Pages</li>
@@ -99,7 +106,7 @@
             </li>
           </ul>
         </div>
-        <!--/.navbar-collapse --> 
+        <!--/.navbar-collapse -->
       </div>
     </div>
   </div>

@@ -1,17 +1,17 @@
 class Refuelling < ActiveRecord::Base
   extend Enumerize
 
-  scope :previous, lambda {|id, vehicle| where("id < ? and vehicle_id = ?",id,vehicle).order("id DESC") }
+  scope :previous, lambda { |id, vehicle| where("id < ? and vehicle_id = ?",id,vehicle).order("id DESC") }
 
   belongs_to :vehicle
   before_create :calculaAoCriar
   before_update :calculaAoAtualizar
 
   enumerize :result, :in => {
-    :zero => 0, 
-    :up => 1, 
+    :zero => 0,
+    :up => 1,
     :down => 2
-    }, default: :zero #, scope: true
+  }, default: :zero #, scope: true
 
   def previous
     Refuelling.previous(self.id, self.vehicle).first
@@ -33,12 +33,11 @@ class Refuelling < ActiveRecord::Base
       unless lastRefill.average_consumption.nil?
         if self.average_consumption > lastRefill.average_consumption
           self.result = :up
-
         elsif self.average_consumption < lastRefill.average_consumption
           self.result = :down
         else
           self.result = :zero
-        end 
+        end
       end
     end
   end
@@ -62,7 +61,7 @@ class Refuelling < ActiveRecord::Base
           self.result = :down
         else
           self.result = :zero
-        end 
+        end
       end
     end
   end

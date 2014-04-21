@@ -57,4 +57,4 @@ for i in 0..50
   Refuelling.create( date: thatdate.day.ago, km: kmatual, liter_price: rand(2.791..2.899), total_value: 100 + rand(25..45), gas_station: 'Ipiranguinha', vehicle_id: 2)
 end
 
-User.create(id: 1, email: 'admin@example.com', password: 'password');
+User.create(email: 'admin@example.com', password: 'password');

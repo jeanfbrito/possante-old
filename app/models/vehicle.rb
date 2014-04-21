@@ -6,7 +6,7 @@ class Vehicle < ActiveRecord::Base
     :ok => 0, 
     :warning => 1, 
     :danger => 2
-    }, default: :ok #, scope: true
+  }, default: :ok #, scope: true
 
   friendly_id :numberplate, use: :slugged
 
