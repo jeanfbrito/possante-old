@@ -47,8 +47,8 @@ gem 'devise'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "font-awesome-rails", "~> 4.0.3.0"
-gem "bootstrap-sass", "3.0.0.0 "
+gem "font-awesome-rails"
+gem "bootstrap-sass"
 
 gem 'inherited_resources'
 
