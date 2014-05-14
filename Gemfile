@@ -5,7 +5,15 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+
+# Use unicorn as the app server
+gem 'unicorn'
+
 gem 'pg'
+
+# Deploy with Capistrano
+gem 'capistrano', '~> 2.15.5'
+gem 'rvm-capistrano'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
