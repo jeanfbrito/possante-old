@@ -64,11 +64,11 @@ gem "animate-rails"
 
 gem 'friendly_id', '~> 5.0.0' 
 
-gem "chartkick"
+#gem "chartkick"
 
 gem 'pry-rails', '~> 0.3.2'
 
-gem 'groupdate'
+#gem 'groupdate'
 
 gem "enumerize", "~> 0.7.0"
 
