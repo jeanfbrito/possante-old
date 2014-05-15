@@ -23,8 +23,7 @@ class RefuellingsController < InheritedResources::Base
   end
 
   def index
-    @refuellings = @vehicle.refuellings.order('date desc')
-
+    @refuellings = @vehicle.refuellings.order('date desc').page(params[:page])
     respond_to do |format|
       format.html
     end
