@@ -1,1 +1,83 @@
-teste
+<div id="content">
+    <div class="container">
+    <h2 class="title-divider"><span>Manutenções <span class="de-em"> do veículo</span></span> 
+      <small><%= @vehicle.vehicle_model.brand.name %> - <%= @vehicle.vehicle_model.name %> - Placa: <%= @vehicle.numberplate %> </small></h2>
+              <div id="tools">
+                <a href="<%= new_vehicle_refuelling_path(@vehicle)%>" class="btn btn-success pull-right spaced">
+                  <i class="fa fa-plus">
+                  </i> Nova manutenção</a>
+              </div>
+              
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th></th> 
+                    <th>Data</th>                
+                    <th>Km</th>
+                    <th>Custo</th>
+                    <th>Garantia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @maintenances.each do |maintenance| %>
+                  <tr>
+                    <td style="text-align: center;" class="refill-actions">
+                      <%= link_to raw('<i class="fa fa-edit" data-toggle="tooltip" title="Editar abastecimento"></i>'), 
+                        "#editRefill", 
+                        :data => { :url => edit_vehicle_refuelling_path(@vehicle, refill), :toggle => "modal" }, 
+                        :class => "edit-refill-button" %>
+                    </td>
+                    <td>
+                      <%= l maintenance.date %>
+                    </td>
+                    <td>
+                      <%= maintenance.mileage %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(maintenance.cost) %>
+                    </td>
+                    <td>
+                      <% case maintenance.warranty
+                           when 0 %>
+                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                        <% when 1 %>
+                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                        <% when 2 %>
+                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 
+                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <% end %>           
+                </tbody>
+              </table>
+              <%= paginate @maintenances, :pagination_class => "pagination-small pagination-centered" %>
+  </div>
+</div>
+
+<div id="content-below" class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="upsell"> <small class="muted">99.9% Uptime <span class="spacer">//</span> Free upgrade assistence <span class="spacer">//</span> 24/7 Support <span class="spacer">//</span> Plans from $19.99/month <span class="spacer">//</span> </small> <a href="pricing.htm" class="btn btn-primary">Start your Free Trial Today! <i class="fa fa-arrow-right"></i></a> </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+  <div class="modal fade" id="editRefill" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Editando abastecimento</h4>
+        </div>
+        <div class="modal-body">
+          Carregando...
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
