@@ -11,6 +11,7 @@ class Vehicle < ActiveRecord::Base
   friendly_id :numberplate, use: :slugged
 
   has_many :refuellings
+  has_many :maintenances
   belongs_to :user
   belongs_to :fabrication_year
   belongs_to :vehicle_model
