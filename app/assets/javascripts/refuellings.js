@@ -19,7 +19,7 @@ function lineChart() {
     ykeys: ['average_consumption'],
     labels: ['Consumo médio'],
     xLabels: ["day"],
-    resize: true,
-    redraw: true
+    redraw: true,
+    postUnits: ' km/l'
   });
 }
