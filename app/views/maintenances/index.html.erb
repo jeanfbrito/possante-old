@@ -22,6 +22,8 @@
                     <th>Status da Garantia</th>
                     <th>Garantia</th>
                     <th>Tipo de Manutenção</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,6 +52,18 @@
                     </td>
                     <td>
                       <%= maintenance.maintenance_type %>
+                    </td>
+                    <td style="text-align: center;" class="refill-actions">
+                      <%= link_to raw('<i class="fa fa-edit" data-toggle="tooltip" title="Editar manutenção"></i>'), 
+                        "#editMaintenance", 
+                        :data => { :url => edit_vehicle_maintenance_path(@vehicle, maintenance), :toggle => "modal" }, 
+                        :class => "edit-maintenance-button" %>
+                    </td>
+                    <td style="text-align: center;" class="refill-actions">
+                      <%= link_to raw('<i class="fa fa-file-text-o" data-toggle="tooltip" title="Documentos"></i>'), 
+                        "#editMaintenance", 
+                        :data => { :url => edit_vehicle_maintenance_path(@vehicle, maintenance), :toggle => "modal" }, 
+                        :class => "edit-maintenance-button" %>
                     </td>
                   </tr>
                   <% end %>           
