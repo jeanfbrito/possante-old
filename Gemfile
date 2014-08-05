@@ -82,3 +82,5 @@ gem "rails-i18n", "~> 4.0.0"
 gem 'simple_form'
 
 gem 'kaminari'
+
+gem 'dragonfly', "~>1.0.5"
