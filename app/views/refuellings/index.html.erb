@@ -1,4 +1,6 @@
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% content_for :javascript do %>
+  <%= javascript_include_tag params[:controller] %>
+<% end %>
 
 <div id="content">
     <div class="container">

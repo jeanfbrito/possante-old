@@ -13,46 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require script
 
 $("i").tooltip({
     'selector': '',
     'placement': 'top'
   });
-
-
-
-$(document).ready(function(){
-   $('.edit-refill-button').click(function() {
-    var url;
-    url = $(this).data('url');
-    return $.ajax({
-      url: url,
-      type: "GET",
-      success: function(data) {
-        return $('#editRefill .modal-body').html(data);
-      },
-      error: function() {
-        return $('#editRefill .modal-body').html("ERROR");
-      }
-    });
-  });   
-});
-
-$(document).ready(function(){
-   $('.edit-maintenance-button').click(function() {
-    var url;
-    url = $(this).data('url');
-    return $.ajax({
-      url: url,
-      type: "GET",
-      success: function(data) {
-        return $('#editMaintenance .modal-body').html(data);
-      },
-      error: function() {
-        return $('#editMaintenance .modal-body').html("ERROR");
-      }
-    });
-  });   
-});
-

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140805004833) do
     t.integer "mileage"
     t.integer "vehicle_id"
     t.integer "warranty_status"
-    t.integer "type"
+    t.integer "maintenance_type"
   end
 
   create_table "pages", force: true do |t|

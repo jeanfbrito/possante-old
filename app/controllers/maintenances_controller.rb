@@ -51,7 +51,7 @@ class MaintenancesController < InheritedResources::Base
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
     def resource_params
-      params.require(:maintenance).permit(:date, :mileage, :cost, :description, :warranty_time)
+      params.require(:maintenance).permit(:date, :mileage, :cost, :description, :warranty_time, :maintenance_type)
     end
 
     def find_vehicle

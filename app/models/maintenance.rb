@@ -5,7 +5,7 @@ class Maintenance < ActiveRecord::Base
 
   belongs_to :vehicle
 
-  enumerize :type, :in => {
+  enumerize :maintenance_type, :in => {
     :preventive => 0,
     :corrective => 1,
   }
