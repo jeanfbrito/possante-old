@@ -9,7 +9,12 @@ gem 'rails', '4.0.0'
 # Use unicorn as the app server
 gem 'unicorn'
 
-gem 'pg'
+group :development, :test do
+   gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.15.5'
