@@ -3,7 +3,7 @@
     <h2 class="title-divider"><span>Manutenções <span class="de-em"> do veículo</span></span> 
       <small><%= @vehicle.vehicle_model.brand.name %> - <%= @vehicle.vehicle_model.name %> - Placa: <%= @vehicle.numberplate %> </small></h2>
               <div id="tools">
-                <a href="<%= new_vehicle_refuelling_path(@vehicle)%>" class="btn btn-success pull-right spaced">
+                <a href="<%= new_vehicle_maintenance_path(@vehicle)%>" class="btn btn-success pull-right spaced">
                   <i class="fa fa-plus">
                   </i> Nova manutenção</a>
               </div>
@@ -15,17 +15,19 @@
                     <th>Data</th>                
                     <th>Km</th>
                     <th>Custo</th>
+                    <th>Status da Garantia</th>
                     <th>Garantia</th>
+                    <th>Tipo de Manutenção</th>
                   </tr>
                 </thead>
                 <tbody>
                   <% @maintenances.each do |maintenance| %>
                   <tr>
                     <td style="text-align: center;" class="refill-actions">
-                      <%= link_to raw('<i class="fa fa-edit" data-toggle="tooltip" title="Editar abastecimento"></i>'), 
-                        "#editRefill", 
-                        :data => { :url => edit_vehicle_refuelling_path(@vehicle, refill), :toggle => "modal" }, 
-                        :class => "edit-refill-button" %>
+                      <%= link_to raw('<i class="fa fa-edit" data-toggle="tooltip" title="Editar manutenção"></i>'), 
+                        "#editMaintenance", 
+                        :data => { :url => edit_vehicle_maintenance_path(@vehicle, maintenance), :toggle => "modal" }, 
+                        :class => "edit-maintenance-button" %>
                     </td>
                     <td>
                       <%= l maintenance.date %>
@@ -37,17 +39,13 @@
                       <%= number_to_currency(maintenance.cost) %>
                     </td>
                     <td>
-                      <% case maintenance.warranty
-                           when 0 %>
-                            <i  style="color: #C0C0C0;" class="fa fa-arrow-right"></i> 
-                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
-                        <% when 1 %>
-                            <i  style="color: #008000;" class="fa fa-arrow-up"></i> 
-                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
-                        <% when 2 %>
-                            <i  style="color: #FF0000;" class="fa fa-arrow-down"></i> 
-                            <%= number_to_currency(refill.average_consumption, unit: "Km/l", separator: ",", delimiter: "", format: "%n %u") %>
-                      <% end %>
+                      <%= maintenance.warranty_status %>
+                    </td>
+                    <td>
+                      <%= l maintenance.warranty_time %>
+                    </td>
+                    <td>
+                      <%= maintenance.type %>
                     </td>
                   </tr>
                   <% end %>           
@@ -66,12 +64,12 @@
 </div>
 
 <!-- Modal -->
-  <div class="modal fade" id="editRefill" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade" id="editMaintenance" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Editando abastecimento</h4>
+          <h4 class="modal-title">Editando manutenção</h4>
         </div>
         <div class="modal-body">
           Carregando...

@@ -1,0 +1,8 @@
+<%= simple_form_for [@vehicle, @maintenance], url: vehicle_maintenances_path, html: { class: 'form-inline' } do |f| %>
+  <%= f.input :date %>
+  <%= f.input :mileage %>
+  <%= f.input :cost %>
+  <%= f.input :type %>
+  <%= f.input :warranty_time %>
+  <%= f.submit %>
+<% end %>
