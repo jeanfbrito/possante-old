@@ -1,0 +1,6 @@
+<%= simple_form_for [@vehicle, @maintenance, @document], url: vehicle_maintenance_document_path, html: { class: 'form-inline' } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+<% end %>

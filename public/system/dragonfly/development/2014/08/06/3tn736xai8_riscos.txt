@@ -1,0 +1,13 @@
+8) Responda qual o nível do risco para cada um dos riscos abaixo.
+Obs.: Utilize como base a tabela com atributos qualificáveis do exemplo nos slides da apresentação sobre Gestão de Riscos.
+a. Risco 1
+i. Ameaça: usuário mal-intencionado presente no setor de Redes. Nível ALTO.
+ii. Vulnerabilidade: bug no SGBD MySQL expõe dados se utilizado o exploit denominado “AtaqueMacabro-MyBD”. Nível BAIXO.
+iii. Impacto: o único BD que utiliza MySQL é o sistema Ocomon, cuja finalidade é registrar os chamados do setor de Suporte, ficará disponível e os dados podem ser alterados ou roubados. Nível MÉDIO.
+Resposta: Risco Baixo
+
+b. Risco 2
+i. Ameaça: script-kiddies utilizando aplicativo disponível no BaixaAki para efetuar DOS em servidores Web. Nível MÉDIO.
+ii. Vulnerabilidade: IIS instalado em Windows XP não limita número de conexões nem gerenciamento correto de memória. Nível MÉDIO.
+iii. Impacto: servidor IIS+WindowsXP poderá ficar fora do ar caso ataque DOS ocorra. Neste servidor existe um aplicativo web utilizado pela alta direção para executar gráficos de Business Intelligence. Portanto, impacto de nível ALTO.
+Resposta: Risco médio

@@ -7,6 +7,10 @@
     <h2 class="title-divider"><span>Manutenções <span class="de-em"> do veículo</span></span> 
       <small><%= @vehicle.vehicle_model.brand.name %> - <%= @vehicle.vehicle_model.name %> - Placa: <%= @vehicle.numberplate %> </small></h2>
               <div id="tools">
+                <%= link_to vehicles_path do %>
+                  <i class="fa fa-chevron-circle-left fa-2x" data-toggle="tooltip" title="Veículos"></i>
+                   Veículos
+                <% end %>
                 <a href="<%= new_vehicle_maintenance_path(@vehicle)%>" class="btn btn-success pull-right spaced">
                   <i class="fa fa-plus">
                   </i> Nova manutenção</a>
@@ -60,10 +64,9 @@
                         :class => "edit-maintenance-button" %>
                     </td>
                     <td style="text-align: center;" class="refill-actions">
-                      <%= link_to raw('<i class="fa fa-file-text-o" data-toggle="tooltip" title="Documentos"></i>'), 
-                        "#editMaintenance", 
-                        :data => { :url => edit_vehicle_maintenance_path(@vehicle, maintenance), :toggle => "modal" }, 
-                        :class => "edit-maintenance-button" %>
+                      <%= link_to vehicle_maintenance_documents_path(@vehicle, maintenance) do %>
+                        <i class="fa fa-file-text-o" data-toggle="tooltip" title="Documentos"></i>
+                      <% end %>
                     </td>
                   </tr>
                   <% end %>           

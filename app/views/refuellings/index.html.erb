@@ -13,6 +13,10 @@
                 <%= content_tag :div, "", id: "refuellings_chart", data: {refuellings: @refuellings} %>
               </div>
               <div id="tools">
+                <%= link_to vehicles_path do %>
+                  <i class="fa fa-chevron-circle-left fa-2x" data-toggle="tooltip" title="Veículos"></i>
+                   Veículos
+                <% end %>
                 <a href="<%= new_vehicle_refuelling_path(@vehicle)%>" class="btn btn-success pull-right spaced">
                   <i class="fa fa-plus">
                   </i> Novo abastecimento</a>

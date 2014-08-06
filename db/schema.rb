@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805004833) do
+ActiveRecord::Schema.define(version: 20140805213947) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
     t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.integer  "maintenance_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "file_uid"
+    t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

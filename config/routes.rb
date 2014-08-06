@@ -4,7 +4,9 @@ Possante::Application.routes.draw do
 
   resources :vehicles do
     resources :refuellings
-    resources :maintenances
+    resources :maintenances do
+      resources :documents
+    end
   end
 
   resources :pages, only: [:index, :show]

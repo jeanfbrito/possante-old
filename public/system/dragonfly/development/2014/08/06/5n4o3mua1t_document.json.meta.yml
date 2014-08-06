@@ -1,0 +1,4 @@
+---
+name: document.json
+model_class: Document
+model_attachment: file

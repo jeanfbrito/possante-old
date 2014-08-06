@@ -4,6 +4,7 @@ class Maintenance < ActiveRecord::Base
   scope :previous, lambda { |id, vehicle| where("id < ? and vehicle_id = ?",id,vehicle).order("id DESC") }
 
   belongs_to :vehicle
+  has_many :documents
 
   enumerize :maintenance_type, :in => {
     :preventive => 0,

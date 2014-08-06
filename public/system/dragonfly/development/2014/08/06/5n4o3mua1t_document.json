@@ -1,0 +1,55 @@
+{
+  "imovel 01": [
+    {
+      "banheiro": {
+        "largura": "4m",
+        "comprimento": "4m",
+        "fotos": {
+          "foto1": null
+        }
+      },
+      "quarto": {
+        "largura": null,
+        "comprimento": null,
+        "fotos": {
+          "foto1": null,
+          "fito2": null,
+          "fito3": null
+        }
+      },
+      "cozinha": {
+        "comprimento": "4m",
+        "largura": "3m",
+        "fotos": {
+          "foto1": "hauaujajja",
+          "foto2": null
+        }
+      },
+      "sala de estar": {
+        "comprimento": "4,5m",
+        "largura": "3m",
+        "fotos": {
+          "foto3": "jdjsjuaajja",
+          "foto2": "jsjauaujajj",
+          "foto1": "dhuauajdjs"
+        }
+      },
+      "quarto casal": {
+        "comprimento": "4m",
+        "largura": "3m",
+        "fotos": {
+          "foto1": "hsjiajaa",
+          "foto2": null,
+          "foto3": null
+        },
+        "banheiro": {
+          "largura": null,
+          "comprimento": null,
+          "fotos": {
+            "foto1": null
+          }
+        }
+      }
+    }
+  ]
+}

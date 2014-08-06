@@ -1,7 +1,7 @@
 class CreateDocuments < ActiveRecord::Migration
   def change
     create_table :documents do |t|
-      t.integer :vehicle_id
+      t.integer :maintenance_id
 
       t.string :title
       t.text   :description
