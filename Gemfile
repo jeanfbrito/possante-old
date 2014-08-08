@@ -9,9 +9,10 @@ gem 'rails', '4.0.0'
 # Use unicorn as the app server
 gem 'unicorn'
 
-group :development, :test do
-   gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
 end
@@ -67,7 +68,7 @@ gem 'inherited_resources'
 
 gem "animate-rails"
 
-gem 'friendly_id', '~> 5.0.0' 
+gem 'friendly_id', '~> 5.0.0'
 
 #gem "chartkick"
 
